@@ -10,6 +10,7 @@ import {
   CardMedia,
   Button,
 } from '@mui/material';
+import { Bounce, toast } from 'react-toastify';
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -18,6 +19,23 @@ const ProductDetail = () => {
 
   if (isLoading) return <CircularProgress />;
   if (error) return <div>Fehler beim Laden des Produkts</div>;
+
+  const handleAddToCart = () => {
+    if (product) {
+      addItem(product);
+      toast.success(`🦄 ${product.title} wurde zum Warenkorb hinzugefügt!`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+        transition: Bounce,
+      });
+    }
+  };
 
   return (
     <Box display="flex" justifyContent="center" p={2}>
@@ -45,7 +63,7 @@ const ProductDetail = () => {
             variant="contained"
             color="primary"
             sx={{ marginTop: 2 }}
-            onClick={() => product && addItem(product)}
+            onClick={handleAddToCart}
           >
             Zum Warenkorb hinzufügen
           </Button>

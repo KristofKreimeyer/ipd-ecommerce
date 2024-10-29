@@ -2,8 +2,8 @@ import { Box, AppBar, Toolbar, Typography } from '@mui/material';
 
 const Navbar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1, marginBottom: '100px' }}>
+      <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             IPD Ecommerce Demo
