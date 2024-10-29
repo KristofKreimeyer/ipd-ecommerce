@@ -5,7 +5,7 @@
 1. **Repository klonen**
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/KristofKreimeyer/ipd-ecommerce
 ```
 
 2. **Abhängigkeiten installieren**
